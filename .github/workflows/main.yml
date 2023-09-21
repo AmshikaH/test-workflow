@@ -17,6 +17,6 @@ jobs:
         GITHUB_CONTEXT: ${{ toJson(github) }}
       run: |
         echo "${{ github.triggering_actor }}"
-        echo "${{ github.event.pusher.login }}"
+        echo "${{ github.event.pusher.name }}"
         echo "${{ github.event.sender.login }}"
-        echo "${{ github.event.commits.author.name }}"
+        echo "${{ github.event.commits[0].author.name }}"
