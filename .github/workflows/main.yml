@@ -2,8 +2,6 @@ name: Experiment
 on: 
   workflow_dispatch:
   push:
-    types:
-      - closed
     paths:
       - 'identity-server-info.json'
     
