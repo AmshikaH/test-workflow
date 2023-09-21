@@ -9,10 +9,6 @@ on:
 jobs:
   job1:
     name: Debug
-    if: github.event_name == 'workflow_dispatch' || 
-      ( github.event.pull_request.merged == true && 
-      github.event.pull_request.merged_by.login == 'AmshikaH' &&
-      startsWith(github.head_ref, 'product-info-changes') )
     runs-on: ubuntu-latest
 
     steps:
@@ -21,3 +17,8 @@ jobs:
         echo "Running"
         echo ${{ github.event.pull_request.title }}
         echo ${{ github.head_ref }}
+        echo ${{ github.base_ref }}
+        echo ${{ github.ref }}
+        echo ${{ github.sender }}
+        echo ${{ github.commits.author }}
+        echo ${{ github.commits.url }}
