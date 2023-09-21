@@ -1,6 +1,6 @@
 {
   "dist_url": "https://wso2.org/jenkins/job/products/job/product-is/4827//artifact/modules/distribution/target/wso2is-7.0.0-alpha-SNAPSHOT.zip",
-  "image_tag": "7.0.0-alpha-1695110296-251df97c7ec886edb7b33c75bccebf9795e13q20",
+  "image_tag": "7.0.0-alpha-1695110296-251df97c7ec886edb7b33c75bccebf9795e13q2022",
   "release_version": "7.0.0-alpha-SNAPSHOT",
   "is_release_build": false
 }
