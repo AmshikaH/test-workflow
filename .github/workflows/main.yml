@@ -6,16 +6,19 @@ on:
       - closed
     paths:
       - 'identity-server-info.json'
-    branches:
-      - 'product-info-changes**'
     
 
 jobs:
   job1:
     name: Debug
-    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.merged == true
+    if: github.event_name == 'workflow_dispatch' || 
+      ( github.event.pull_request.merged == true && 
+      github.event.pull_request.merged_by.login == 'AmshikaH' &&
+      startsWith(github.head_ref, 'product-info-changes**') )
     runs-on: ubuntu-latest
 
     steps:
     - name: List file
-      run: echo "Running"
+      run: |
+        echo "Running"
+        echo ${{ github.event.pull_request.title }}
