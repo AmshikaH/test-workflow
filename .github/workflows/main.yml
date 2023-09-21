@@ -1,12 +1,16 @@
 name: Experiment
 on: 
+  workflow_dispatch:
   pull_request:
+    paths:
+      - 'README.md'
     types:
       - closed
 
 jobs:
   job1:
     name: Debug
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     steps:
