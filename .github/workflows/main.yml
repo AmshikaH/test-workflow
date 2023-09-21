@@ -16,4 +16,6 @@ jobs:
 
     steps:
     - name: List file
-      run: echo "Running"
+      run: |
+        echo "Running"
+        echo ${{ github.event.pull_request.title }}
