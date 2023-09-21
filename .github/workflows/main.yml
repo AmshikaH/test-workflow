@@ -16,9 +16,9 @@ jobs:
       run: |
         echo "Running"
         echo ${{ github.event.pull_request.title }}
-        echo ${{ github.head_ref }}
-        echo ${{ github.base_ref }}
+        echo ${{ github.event.head_ref }}
+        echo ${{ github.event.base_ref }}
         echo ${{ github.ref }}
-        echo ${{ github.sender }}
-        echo ${{ github.commits.author }}
-        echo ${{ github.commits.url }}
+        echo ${{ github.event.sender }}
+        echo ${{ github.event.commits.author }}
+        echo ${{ github.event.commits.url }}
