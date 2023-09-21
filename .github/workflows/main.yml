@@ -6,6 +6,7 @@ on:
       - closed
     paths:
       - 'identity-server-info.json'
+    branches: ['product-changes-info**']
     
 
 jobs:
