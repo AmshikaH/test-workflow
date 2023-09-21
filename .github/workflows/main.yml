@@ -16,4 +16,7 @@ jobs:
       env:
         GITHUB_CONTEXT: ${{ toJson(github) }}
       run: |
-        echo "$GITHUB_CONTEXT"
+        echo "${{ github.triggering_actor }}"
+        echo "${{ github.pusher }}"
+        echo "${{ github.sender.login }}"
+        echo "${{ github.commits }}"
