@@ -2,10 +2,13 @@ name: Experiment
 on: 
   workflow_dispatch:
   pull_request:
-    paths:
-      - 'README.md'
     types:
       - closed
+    paths:
+      - 'identity-server-info.json'
+    branches:
+      - 'product-info-changes**'
+    
 
 jobs:
   job1:
