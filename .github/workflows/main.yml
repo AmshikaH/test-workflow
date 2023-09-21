@@ -13,25 +13,7 @@ jobs:
 
     steps:
     - name: List file
+      env:
+        GITHUB_CONTEXT: ${{ toJson(github) }}
       run: |
-        echo "Running"
-        echo ${{ github.event.head_ref }}
-        echo ${{ github.event.base_ref }}
-        echo ${{ github.ref }}
-        echo ${{ github.event.sender.login }}
-        echo ${{ github.event.commits.author }}
-        echo ${{ github.event.commits.url }}
-        echo "Next"
-        echo ${{ github.event.push.head_ref }}
-        echo ${{ github.event.push.base_ref }}
-        echo ${{ github.event.ref }}
-        echo ${{ github.event.push.sender.login }}
-        echo ${{ github.event.push.commits.author }}
-        echo ${{ github.event.push.commits.url }}
-        echo "Next 1"
-        echo ${{ github.push.head_ref }}
-        echo ${{ github.push.base_ref }}
-        echo ${{ github.push.ref }}
-        echo ${{ github.push.sender.login }}
-        echo ${{ github.push.commits.author }}
-        echo ${{ github.push.commits.url }}
+        echo "$GITHUB_CONTEXT"
