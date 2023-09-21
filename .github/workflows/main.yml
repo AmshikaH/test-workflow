@@ -10,11 +10,11 @@ jobs:
   job1:
     name: Debug
     runs-on: ubuntu-latest
-
+    if: github.event_name == 'workflow_dispatch' || 
+      ( github.triggering_actor == 'AmshikaH' &&
+      github.event.commits[0].author.name == 'test-bot-amshi' )
     steps:
     - name: List file
-      env:
-        GITHUB_CONTEXT: ${{ toJson(github) }}
       run: |
         echo "${{ github.triggering_actor }}"
         echo "${{ github.event.pusher.name }}"
