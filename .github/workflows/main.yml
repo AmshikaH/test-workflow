@@ -1,9 +1,9 @@
 name: Experiment
 on: 
   workflow_dispatch:
-  pull_request:
-    types:
-      - closed
+  push:
+    branches:
+      - 'main'
     paths:
       - 'identity-server-info.json'
     
@@ -11,14 +11,15 @@ on:
 jobs:
   job1:
     name: Debug
-    if: github.event_name == 'workflow_dispatch' || 
-      ( github.event.pull_request.merged == true && 
-      github.event.pull_request.merged_by.login == 'AmshikaH' &&
-      startsWith(github.head_ref, 'product-info-changes**') )
     runs-on: ubuntu-latest
-
+    if: github.event_name == 'workflow_dispatch' || 
+      ( github.event_name == 'push' && 
+      github.triggering_actor == 'AmshikaH' &&
+      github.event.commits[0].author.name == 'AmshikaH' )
     steps:
     - name: List file
       run: |
-        echo "Running"
-        echo ${{ github.event.pull_request.title }}
+        echo "${{ github.triggering_actor }}"
+        echo "${{ github.event_name }}"
+        echo "${{ github.event.sender.login }}"
+        echo "${{ github.event.commits[0].author.name }}"
